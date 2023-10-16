@@ -1,0 +1,6 @@
+.venv
+.DS_Store
+__pycache__
+.vscode
+leapfrogai_backend_instructor_xl.egg-info
+model/
