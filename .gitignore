@@ -3,4 +3,6 @@
 __pycache__
 .vscode
 leapfrogai_backend_instructor_xl.egg-info
-model/
+.model/
+.python-version
+zarf-package-*.tar.zst
