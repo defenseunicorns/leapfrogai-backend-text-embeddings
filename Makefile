@@ -24,9 +24,8 @@ test:
 dev:
 	python main.py
 
-make docker-build:
-	git clone https://huggingface.co/hkunlp/instructor-xl model & \
+docker-build:
 	docker build -t ghcr.io/defenseunicorns/leapfrogai-backend-instructor-xl:${VERSION} .
 
-make docker-push:
+docker-push:
 	docker push ghcr.io/defenseunicorns/leapfrogai-backend-instructor-xl:${VERSION}
