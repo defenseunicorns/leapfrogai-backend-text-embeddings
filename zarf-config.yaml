@@ -1,0 +1,7 @@
+package:
+  create:
+    set:
+      # image_repository: "ghcr.io/defenseunicorns/leapfrogai/instructor-xl"
+      image_repository: "localhost:5000/instructor-xl"
+      image_version: 0.0.1
+      name: instructor-xl
