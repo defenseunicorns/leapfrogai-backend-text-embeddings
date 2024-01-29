@@ -7,7 +7,7 @@ RUN pip install -r requirements.txt --user
 
 # Download the model
 # TODO: Make the exact mnodel repo configurable. Right now it is hardcoded in the model_download.py script
-COPY model_download.py .
+COPY scripts/model_download.py .
 RUN ["python", "model_download.py"]
 
 FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-amd64
