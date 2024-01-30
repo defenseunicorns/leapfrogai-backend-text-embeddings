@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  REGISTRY_IMAGE: defenseunicorns/leapfrogai-backend-instructor-xl
+  REGISTRY_IMAGE: defenseunicorns/leapfrogai/instructor-xl
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          - linux/arm64
+          # - linux/arm64
 
     steps:
       - name: Checkout Repo
@@ -148,8 +148,5 @@ jobs:
       - name: Install Zarf
         uses: defenseunicorns/setup-zarf@f95763914e20e493bb5d45d63e30e17138f981d6 # v1.0.0
 
-      - name: Build Zarf Package
-        run: zarf package create . -a linux/amd64 --confirm
-
-      - name: Publish Zarf Package
-        run: zarf package publish zarf-package-*.zst oci://ghcr.io/defenseunicorns/packages --confirm
+      - name: In-Line Publish Zarf Package
+        run: zarf package create . -o oci://ghcr.io/defenseunicorns/packages --confirm
