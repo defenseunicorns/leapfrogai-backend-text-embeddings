@@ -25,7 +25,7 @@ dev:
 	python main.py
 
 docker-build:
-	docker build -t ghcr.io/defenseunicorns/leapfrogai-backend-instructor-xl:${VERSION} .
+	docker build -t ghcr.io/defenseunicorns/leapfrogai/instructor-xl:${VERSION} .
 
 docker-push:
-	docker push ghcr.io/defenseunicorns/leapfrogai-backend-instructor-xl:${VERSION}
+	docker push ghcr.io/defenseunicorns/leapfrogai/instructor-xl:${VERSION}
