@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  - REGISTRY: ghcr.io
-  - REGISTRY_IMAGE: defenseunicorns/leapfrogai-backend-instructor-xl
+  REGISTRY: ghcr.io
+  REGISTRY_IMAGE: defenseunicorns/leapfrogai-backend-instructor-xl
 
 jobs:
   build:
@@ -149,10 +149,7 @@ jobs:
         uses: defenseunicorns/setup-zarf@f95763914e20e493bb5d45d63e30e17138f981d6 # v1.0.0
 
       - name: Build Zarf Package
-        run: zarf package create . --confirm
-
-      - name: Build Zarf Package
-        run: zarf package create . --confirm
+        run: zarf package create . -a linux/amd64 --confirm
 
       - name: Publish Zarf Package
         run: zarf package publish zarf-package-*.zst oci://ghcr.io/defenseunicorns/packages --confirm
