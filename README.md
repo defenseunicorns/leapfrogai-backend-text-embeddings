@@ -1,8 +1,8 @@
-# LeapfrogAI Embeddings Backend
+# LeapfrogAI Text Embeddings Backend
 
 ## Description
 
-A LeapfrogAI API-compatible embeddings wrapper for audio transcription generation.
+A LeapfrogAI API-compatible embeddings library wrapper for text-based embedding generation.
 
 ## Usage
 
@@ -24,7 +24,15 @@ The following are additional assumptions for GPU inferencing:
 4. You have properly installed and configured the [cuda-toolkit](https://developer.nvidia.com/cuda-toolkit) and [nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
 </details>
 
+### Model Selection
+
+The default model that comes with this backend in this repository's officially released images is a [Instructor-XL](https://huggingface.co/hkunlp/instructor-xl).
+
+Other Instructor-based model sizes and variants can be loaded into this backend by modifying the model repository named in the `scripts/model_download.py` prior to image creation or Makefile command execution.
+
 ### Run Locally
+
+Please note that the underlying sentence transformers library will automatically detect and apply GPU or CPU inferencing.
 
 ```bash
 # Setup Virtual Environment
@@ -38,8 +46,6 @@ make fetch-model
 # Start Model Backend
 python main.py
 ```
-
-
 
 ### Run in Docker
 
