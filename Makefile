@@ -1,4 +1,3 @@
-REGISTRY ?= ghcr.io/defenseunicorns/leapfrogai/text-embeddings
 VERSION ?= $(shell git fetch --tags && git tag -l "*.*.*" | sort -V | tail -n 1 | sed -e 's/^v//')
 ARCH ?= $(shell uname -m | sed s/aarch64/arm64/ | sed s/x86_64/amd64/)
 
@@ -42,17 +41,3 @@ docker-run-gpu:
 
 docker-push:
 	docker push ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
-
-docker-publish:
-	docker buildx install && \
-	if docker buildx ls | grep -q 'text-embeddings'; then \
-	echo "Instance text-embeddings already exists."; \
-	else \
-	docker buildx create --use --name text-embeddings; \
-	fi && \
-	docker buildx build --push \
-	--build-arg REGISTRY=${REGISTRY} \
-	--build-arg VERSION=${VERSION} \
-	--platform linux/arm64,linux/amd64 \
-	-t ${REGISTRY}:${VERSION} . && \
-	docker buildx rm text-embeddings
