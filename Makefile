@@ -18,6 +18,9 @@ build-requirements:
 build-requirements-dev:
 	pip-compile --extra dev -o requirements-dev.txt pyproject.toml
 
+fetch-model:
+	python scripts/model_download.py
+
 test:
 	pytest **/*.py
 
@@ -25,7 +28,7 @@ dev:
 	python main.py
 
 docker-build:
-	docker build -t ghcr.io/defenseunicorns/leapfrogai/instructor-xl:${VERSION} .
+	docker build -t ghcr.io/defenseunicorns/leapfrogai/embeddings:${VERSION} .
 
 docker-push:
-	docker push ghcr.io/defenseunicorns/leapfrogai/instructor-xl:${VERSION}
+	docker push ghcr.io/defenseunicorns/leapfrogai/embeddings:${VERSION}

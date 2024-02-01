@@ -1,6 +1,18 @@
 package:
   create:
     set:
-      image_repository: "ghcr.io/defenseunicorns/leapfrogai/instructor-xl"
-      image_version: 0.0.1
-      name: instructor-xl
+      image_repository: "ghcr.io/defenseunicorns/leapfrogai/embeddings"
+      image_version: 0.2.0
+      name: embeddings
+    max_package_size: "1000000000"
+  deploy:
+    set:
+      name: embeddings
+      image_repository: "ghcr.io/defenseunicorns/leapfrogai/embeddings"
+      image_version: 0.2.0
+      limits_cpu: 1
+      limits_memory: 20Gi
+      limits_gpu: 0
+      requests_cpu: 1
+      requests_memory: 4Gi
+      requests_gpu: 0

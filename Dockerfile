@@ -1,26 +1,30 @@
-FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-dev-amd64 as builder
+ARG ARCH=amd64
+
+FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-dev-${ARCH} as builder
 
 WORKDIR /leapfrogai
 
-# Install the required packages
-COPY requirements.txt .
-RUN pip install -r requirements.txt --user
-
-# Download the model
-# TODO: Make the exact model repo configurable. Right now it is hardcoded in the model_download.py script
+RUN pip install huggingface_hub
 COPY scripts/model_download.py .
+RUN python model_download.py
 
-RUN ["python", "model_download.py"]
+RUN python3.11 -m venv .venv
+ENV PATH="/leapfrogai/.venv/bin:$PATH"
 
-FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-amd64
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-${ARCH}
+
+ENV PATH="/leapfrogai/.venv/bin:$PATH"
 
 WORKDIR /leapfrogai
 
-COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
+COPY --from=builder /leapfrogai/.venv/ /leapfrogai/.venv/
 COPY --from=builder /leapfrogai/.model/ /leapfrogai/.model/
 
 COPY main.py .
 
 EXPOSE 50051:50051
 
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python", "-u", "main.py"]

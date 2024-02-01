@@ -2,7 +2,6 @@
 .DS_Store
 __pycache__
 .vscode
-leapfrogai_backend_instructor_xl.egg-info
+*.egg-info
 .model/
-.python-version
 zarf-package-*.tar.zst
