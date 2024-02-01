@@ -1,4 +1,4 @@
-VERSION := $(shell git describe --abbrev=0 --tags)
+.PHONY: all
 
 create-venv:
 	python -m venv .venv
@@ -26,9 +26,3 @@ test:
 
 dev:
 	python main.py
-
-docker-build:
-	docker build -t ghcr.io/defenseunicorns/leapfrogai/embeddings:${VERSION} .
-
-docker-push:
-	docker push ghcr.io/defenseunicorns/leapfrogai/embeddings:${VERSION}
