@@ -49,25 +49,16 @@ python main.py
 
 ### Run in Docker
 
-<details>
-<summary><b>GPU Variation</b></summary>
-<br/>
-The following additional flags must be added to the `docker run` command for GPU inferencing:
-
-```bash
-docker run --gpus all -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/embeddings:latest
-```
-
-</details>
-
 #### Local Image Build and Run
 
 For local image building and running.
 
 ```bash
-docker build -t ghcr.io/defenseunicorns/leapfrogai/embeddings:latest .
-# add the "--gpus all" flag for CUDA inferencing
-docker run -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/embeddings:latest
+make docker-build
+# without GPU, CPU-only
+make docker-run
+# with GPU
+make docker-run-gpu
 ```
 
 #### Remote Image Build and Run
@@ -77,7 +68,7 @@ For pulling a tagged image from the main release repository.
 Where `<IMAGE_TAG>` is the released packages found [here](https://github.com/orgs/defenseunicorns/packages/container/package/leapfrogai%2Fembeddings).
 
 ```bash
-docker build -t ghcr.io/defenseunicorns/leapfrogai/embeddings:<IMAGE_TAG> .
+docker build -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:<IMAGE_TAG> .
 # add the "--gpus all" flag for CUDA inferencing
-docker run -p 50051:50051 -d --name embeddings ghcr.io/defenseunicorns/leapfrogai/embeddings:<IMAGE_TAG>
+docker run -p 50051:50051 -d --name text-embeddings ghcr.io/defenseunicorns/leapfrogai/text-embeddings:<IMAGE_TAG>
 ```
