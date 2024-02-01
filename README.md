@@ -49,7 +49,7 @@ python main.py
 The following additional flags must be added to the `docker run` command for GPU inferencing:
 
 ```bash
-docker run --gpus all -e GPU_ENABLED=true -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/embeddings:latest
+docker run --gpus all -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/embeddings:latest
 ```
 
 </details>
