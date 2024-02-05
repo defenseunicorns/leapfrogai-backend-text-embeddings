@@ -41,6 +41,7 @@ source .venv/bin/activate
 make requirements-dev
 
 # Clone Model
+# Supply a REPO_ID and REVISION if a different model is desired
 make fetch-model
 
 # Start Model Backend
