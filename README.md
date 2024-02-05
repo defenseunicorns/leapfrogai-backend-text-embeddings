@@ -59,6 +59,7 @@ For local image building and running.
 make docker-build
 # without GPU, CPU-only
 make docker-run
+
 # with GPU
 make docker-run-gpu
 ```
@@ -71,6 +72,6 @@ Where `<IMAGE_TAG>` is the released packages found [here](https://github.com/org
 
 ```bash
 docker build -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:<IMAGE_TAG> .
-# add the "--gpus all" flag for CUDA inferencing
+# add the "--gpus all" flag for GPU inferencing
 docker run -p 50051:50051 -d --name text-embeddings ghcr.io/defenseunicorns/leapfrogai/text-embeddings:<IMAGE_TAG>
 ```
