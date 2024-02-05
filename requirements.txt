@@ -65,7 +65,7 @@ packaging==23.2
     # via
     #   huggingface-hub
     #   transformers
-pillow==10.1.0
+pillow==10.2.0
     # via torchvision
 protobuf==4.24.4
     # via
