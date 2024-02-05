@@ -48,7 +48,7 @@ instructorembedding==1.0.1
     # via leapfrogai-backend-instructor-xl (pyproject.toml)
 isort==5.12.0
     # via leapfrogai-backend-instructor-xl (pyproject.toml)
-jinja2==3.1.2
+jinja2==3.1.3
     # via torch
 joblib==1.3.2
     # via
