@@ -13,6 +13,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # download model
+COPY scripts/ scripts/
 RUN python scripts/model_download.py
 
 # hardened and slim python image
