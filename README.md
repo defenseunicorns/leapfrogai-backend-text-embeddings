@@ -55,6 +55,7 @@ python main.py
 For local image building and running.
 
 ```bash
+# Supply a REPO_ID and REVISION if a different model is desired
 make docker-build
 # without GPU, CPU-only
 make docker-run
