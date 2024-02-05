@@ -5,17 +5,15 @@ FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-dev-${ARCH} as builder
 
 WORKDIR /leapfrogai
 
-# use huggingface hub to download embeddings model files 
-RUN pip install huggingface_hub
-COPY scripts/model_download.py .
-RUN python model_download.py
-
 # create virtual environment for light-weight portability and minimal libraries
 RUN python3.11 -m venv .venv
 ENV PATH="/leapfrogai/.venv/bin:$PATH"
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+# download model
+RUN python scripts/model_download.py
 
 # hardened and slim python image
 FROM ghcr.io/defenseunicorns/leapfrogai/python:3.11-${ARCH}
