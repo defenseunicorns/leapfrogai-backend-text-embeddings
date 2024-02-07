@@ -5,8 +5,3 @@ package:
       image_version: 0.2.0
       name: text-embeddings
     max_package_size: "1000000000"
-  deploy:
-    set:
-      name: text-embeddings
-      image_repository: "ghcr.io/defenseunicorns/leapfrogai/text-embeddings"
-      image_version: 0.2.0
