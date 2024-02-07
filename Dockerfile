@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 # download model
 ARG REPO_ID="hkunlp/instructor-xl"
 ARG REVISION="ce48b213095e647a6c3536364b9fa00daf57f436"
-COPY scripts/ scripts/
+COPY scripts/model_download.py scripts/model_download.py
 RUN REPO_ID=${REPO_ID} REVISION=${REVISION} python scripts/model_download.py
 
 # hardened and slim python image

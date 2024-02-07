@@ -5,6 +5,8 @@ endif
 
 ARCH ?= $(shell uname -m | sed s/aarch64/arm64/ | sed s/x86_64/amd64/)
 
+DEVICE ?= 0
+
 .PHONY: all
 
 create-venv:
@@ -41,7 +43,7 @@ docker-run:
 	docker run -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
 
 docker-run-gpu:
-	docker run --gpus device=0 -e GPU_ENABLED=true -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
+	docker run --gpus device=${DEVICE} -e GPU_ENABLED=true -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
 
 docker-push:
 	docker push ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}

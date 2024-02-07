@@ -61,6 +61,7 @@ make docker-build
 make docker-run
 
 # with GPU
+# supply DEVICE if you want to use a GPU other than the first
 make docker-run-gpu
 ```
 
