@@ -28,7 +28,7 @@ The following are additional assumptions for GPU inferencing:
 
 The default model that comes with this backend in this repository's officially released images is a [Instructor-XL](https://huggingface.co/hkunlp/instructor-xl).
 
-Other Instructor-based model sizes and variants can be loaded into this backend by modifying the model repository named in the `scripts/model_download.py` prior to image creation or Makefile command execution.
+Other Instructor-based model sizes and variants can be loaded into this backend by modifying or supplying the arguments named in the [model_download.py](./scripts/model_download.py) prior to image creation or Makefile command execution.
 
 ### Run Locally
 
