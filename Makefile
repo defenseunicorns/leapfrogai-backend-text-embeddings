@@ -12,9 +12,6 @@ DEVICE ?= 0
 create-venv:
 	python -m venv .venv
 
-activate-venv:
-	source .venv/bin/activate
-
 requirements-dev:
 	python -m pip install -r requirements-dev.txt
 
