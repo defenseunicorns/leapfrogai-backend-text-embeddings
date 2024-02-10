@@ -6,12 +6,11 @@ from leapfrogai import (
     Embedding,
     EmbeddingRequest,
     EmbeddingResponse,
-    EmbeddingsServiceServicer,
     GrpcContext,
     serve,
 )
 
-model = INSTRUCTOR("./model")
+model = INSTRUCTOR("./.model")
 
 
 class InstructorEmbedding:
