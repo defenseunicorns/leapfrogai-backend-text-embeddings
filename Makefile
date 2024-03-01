@@ -34,13 +34,13 @@ dev:
 	python main.py
 
 docker-build:
-	docker build -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH} --build-arg ARCH=${ARCH} .
+	docker build -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION} --build-arg ARCH=${ARCH} .
 
 docker-run:
-	docker run -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
+	docker run -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}
 
 docker-run-gpu:
 	docker run --gpus device=${DEVICE} -e GPU_ENABLED=true -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
 
-docker-push:
-	docker push ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
+docker-release:
+	docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION} --push .
