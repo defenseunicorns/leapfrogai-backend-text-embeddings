@@ -5,3 +5,9 @@ package:
       image_version: 0.2.0
       name: text-embeddings
     max_package_size: "1000000000"
+  deploy:
+    set:
+      requests_memory: "0"
+      requests_cpu: "0"
+      limits_memory: "0"
+      limits_cpu: "0"

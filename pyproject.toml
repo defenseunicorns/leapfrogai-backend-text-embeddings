@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pip-tools", "pytest", "black", "isort"]
+dev = ["pip-tools", "pytest", "black", "isort", "openai"]
 
 [tool.pip-tools]
 generate-hashes = true
