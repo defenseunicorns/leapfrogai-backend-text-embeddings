@@ -41,6 +41,3 @@ docker-run:
 
 docker-run-gpu:
 	docker run --gpus device=${DEVICE} -e GPU_ENABLED=true -d -p 50051:50051 ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION}-${ARCH}
-
-docker-release:
-	docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/defenseunicorns/leapfrogai/text-embeddings:${VERSION} --push .
