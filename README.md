@@ -1,5 +1,7 @@
 # LeapfrogAI Text Embeddings Backend
 
+> ***⚠️This repo is archived in favor of the LeapfrogAI monorepo: https://github.com/defenseunicorns/leapfrogai⚠️***
+
 ## Description
 
 A LeapfrogAI API-compatible embeddings library wrapper for text-based embedding generation.
